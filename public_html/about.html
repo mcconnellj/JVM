@@ -3,138 +3,153 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
 
-	<meta charset="utf-8">
+    <title>Wolvenfang</title>
+    <meta name="description" content="Homepage For Sudbury Amtguard. Wolvenfang.">
+    <meta name="author" content="Josh Mcconnell">
 
-	<title>The HTML5 Herald</title>
-	<meta name="description" content="The HTML5 Herald">
-	<meta name="author" content="SitePoint">
+    <link rel="stylesheet" type="text/css" href="css/web.css">
 
-	<link rel="stylesheet" type="text/css" href="css/web.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+        crossorigin="anonymous">
 
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
-	 crossorigin="anonymous">
-
-	<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
-	<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
 </head>
 
-<body>
-	<script src="js/scripts.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+<body ng-app="myApp">
+
+    <!-- ==================================== MASTER CONTAIN ==================================== -->
+    <div class="contain">
+
+        <!-- ==================================== BARS TOP / RIGHT / LEFT ==================================== -->
+
+        <!-- ==== TOP BAR ==== -->
+        <div class="top-bar">
+            <a href="index.html">
+                <img src="img/wfwolfhead.png" alt="">
+            </a>
+            <div>
+                <span>WOLVENFANG</span>
+            </div>
+        </div>
+
+        <!-- ==== LEFT BAR ==== -->
+        <div class="left-bar">
+            <div class="left-bar-item">
+                <a href="about.html">
+                    <img src="img/302105-medieval/png/scroll-1.png">
+                    <span>ABOUT</span>
+                </a>
+            </div>
+            <div class="left-bar-item">
+                <a href="events.html">
+                    <img src="img/302105-medieval/png/castle-1.png">
+                    <span>EVENTS</span>
+                </a>
+            </div>
+            <div class="left-bar-item">
+                <a href="heros.html">
+                    <img src="img/302105-medieval/png/crown-2.png">
+                    <span>HEROS</span>
+                </a>
+            </div>
+            <div class="left-bar-item">
+                <a href="game.html">
+                    <img src="img/302105-medieval/png/bow-and-arrow.png">
+                    <span>THE GAME</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- ==== RIGHT BAR ==== -->
+        <div class="right-bar">
+        </div>
 
 
-	<div class="contain">
+        <!-- ==================================== PAGE CONTENT ==================================== -->
+        <div class="content">
 
-		<!-- ====== TOP / LEFT / RIGHT BARS ====== -->
-		<div class="top-bar">
-			<img src="img/wfwolfhead.png" alt="Josh Rocks">
-			<div>
-				<span>WOLVENFANG</span>
-			</div>
-		</div>
-		<div class="left-bar">
-			<div class="left-bar-item">
-				<img src="img/302105-medieval/png/scroll-1.png">
-				<span>ABOUT</span>
-			</div>
-			<div class="left-bar-item">
-				<img src="img/302105-medieval/png/castle-1.png">
-				<span>EVENTS</span>
-			</div>
-			<div class="left-bar-item">
-				<img src="img/302105-medieval/png/crown-2.png">
-				<span>HEROS</span>
-			</div>
-			
-			<div class="left-bar-item">
-				<img src="img/302105-medieval/png/bow-and-arrow.png">
-				<span>THE GAME</span>
-			</div>
-		</div>
-		<div class="right-bar">
-		</div>
+            <div ng-view></div>
 
-		<div class="file">
-			<div class="file-icon">
-				<i class="far fa-file"></i>
-			</div>
-			<div class="file-details">
-				This file is used to break out of prison
-			</div>
-		</div>
+            <div class="space-arround">
+                <div class="intro-content">
+                    <span>Intro To The Dutchy</span>
+                    <br>
+                    <br>
+                    <span class="dutchy-details"> The Great Dutchy of WOLVENFANG, home to those who howl at the moon. Was.... B usinesses are increasingly
+                        using statistical techniques to convert data into information. For students preparing for the business
+                        world, it is not enough merely to focus on mastering a diverse set of statistical techniques and
+                        calculations. A course and its attendant textbook must provide a complete picture of statistical
+                        concepts and their applications to the real world.
+                    </span>
+                </div>
+                <div class="intro-content">
+                    <span>Intro To The Dutchy</span>
+                    <br>
+                    <br>
+                    <span class="dutchy-details"> The Great Dutchy of WOLVENFANG, home to those who howl at the moon. Was.... B usinesses are increasingly
+                        using statistical techniques to convert data into information. For students preparing for the business
+                        world, it is not enough merely to focus on mastering a diverse set of statistical techniques and
+                        calculations. A course and its attendant textbook must provide a complete picture of statistical
+                        concepts and their applications to the real world.
+                    </span>
+                </div>
+                <div class="intro-content">
+                    <span>Intro To The Dutchy</span>
+                    <br>
+                    <br>
+                    <span class="dutchy-details"> The Great Dutchy of WOLVENFANG, home to those who howl at the moon. Was.... B usinesses are increasingly
+                        using statistical techniques to convert data into information. For students preparing for the business
+                        world, it is not enough merely to focus on mastering a diverse set of statistical techniques and
+                        calculations. A course and its attendant textbook must provide a complete picture of statistical
+                        concepts and their applications to the real world.
+                    </span>
+                </div>
+            </div>
 
-		<div class="content">
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			<!--div class="event">
-				<div class="event-date">
-					<span>5</span>
-					<br>
-					<span>MAY</span>
-				</div>
-				<div class="event-details">
-					<span>Event Name</span>
-					<br>
-					<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis nisl felis. Nulla ut fermentum mauris. Mauris
-						sit amet ipsum sed felis aliquam pharetra. Aenean nec justo quam. Proin non dolor iaculis, lacinia urna vitae, sodales
-						leo. Nam in ornare risus.</span>
-				</div>
-			</div>
+            <div class="space-between">
+                <div class="image-link">
+                    <div>
+                        <img src="img/swordknight.png" alt="">
+                    </div>
+                    <div>
+                        <a>Social WF</a>
+                    </div>
+                </div>
+                <div class="image-link">
+                    <div>
+                        <img src="img/swordknight.png" alt="">
+                    </div>
+                    <div>
+                        <a>Social Nine Blades</a>
+                    </div>
+                </div>
+                <div class="image-link">
+                    <div>
+                        <img src="img/swordknight.png" alt="">
+                    </div>
+                    <div>
+                        <a>Knight Crown</a>
+                    </div>
+                </div>
+            </div>
 
-			<div class="contain-space-arround">
-				<div class="image-link">
-					<div>
-						<img src="img/swordknight.png" alt="Josh Rocks">
-					</div>
-					<div>
-						<a>Knight Crown</a>
-					</div>
-				</div>
-				<div class="image-link">
-					<div>
-					</div>
-					<div>
-						<a>Knight Crown</a>
-					</div>
-				</div>
-				<div class="image-link">
-					<div>
-					</div>
-					<div>
-						<a>Knight Crown</a>
-					</div>
-				</div>
-			</div>
-
-			<br>
-			<br>
-			<br>
-
-			<div class="card">
-				<div>
-				</div>
-				<div>
-				</div>
-				<div>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="contain-space-arround">
-			<div class="half">
-				Tuesday Fighter Practice
-				<!--iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14780.346270070884!2d-81.00025519529704!3d46.50239896394735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4d2faaf9bf9293ef%3A0x51765c56747ed210!2sO&#39;Connor+Playground%2C+Sudbury%2C+ON!5e0!3m2!1sen!2sca!4v1525634453219" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe-->
-			<!--/div>
-			<div class="half">
-				Saturday Feild
-				<!--iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2740.7589924071644!2d-81.02242668553691!3d46.61176566416045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4d2faf4bbb422093%3A0x8c6f9178044a9955!2sConfederation+Secondary+School!5e0!3m2!1sen!2sca!4v1525634607582" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe-->
-			<!--/div>
-		</div-->
-		</div>
-	</div>
-
+            <div class="file">
+                <a href="files/rules/Amtgard_Rules_of_Play-8-10-31-2017-Spooky.pdf">
+                    <div class="file-icon">
+                        <img src="img/302105-medieval/png/spellbook.png" alt="">
+                    </div>
+                    <span>Rule Book</span>
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

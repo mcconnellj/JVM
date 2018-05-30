@@ -21,6 +21,10 @@
 
 /* ==================================== SETUP + CONTAINS ==================================== */
 
+.iframe {
+	width: 40px;
+}
+
 .center-text {
 	text-align: center;
 }
@@ -36,6 +40,25 @@ body {
 a {
 	text-decoration: none;
 }
+
+.facebook {
+
+	transition: all 2ms;
+	width: 100%;
+
+
+	&:hover {
+		margin: auto;
+		opacity: 0.8;
+	}
+
+	img {
+		width: 95%;
+		margin: 2.5%;
+	}
+}
+
+
 
 /* ==== Contains ==== */
 .contain {
@@ -63,6 +86,7 @@ a {
 	background-color: @color-wf-grey;
 	padding: 40px;
 	position: relative;
+	height: unset;
 }
 
 /* ==================================== BARS ==================================== */
@@ -75,6 +99,10 @@ a {
 	grid-row: 1;
 	background-color: @color-light;
 	border-bottom: 8px solid @color-wf-red;
+
+	a {
+		display:flex;
+	}
 
 	/* WF Logo */
 	img {	
@@ -118,23 +146,12 @@ a {
 		justify-content: center;
 		flex-direction: column;
 		text-align: center;
+		transition: all .2s;
+		font-size: 18px;
 
-		a {/*
-			&:hover::after, &:active::after {
-				content: '';
-				position: absolute;
-				bottom: 0;
-				height: inherit;
-				width: 5px;
-				background: red;	
-			}*/
+		&:hover {
+			background-color: rgba(153,157,152,0.2);
 		}
-
-		/*&:hover, &:active {
-			border-right: 4px solid @color-wf-red;
-			margin: 0 0 0 0;
-		}*/
-
 
 		img {
 			width: 70%;
@@ -145,57 +162,58 @@ a {
 
 /* ==================================== COMPONENTS ==================================== */
 .feild-day {
-	height: 150px;
+	height: 300px;
 	width: 48%;
 	background-color: #edf2f4;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-	margin: 0 0 30px 0;
+	margin: 0 0 20px 0;
 	font-size: @font-med;
-	display: flex;
 
-	.feild-day-left {
-		display: inline-flex;
-		width: 20%;
-		height: 100%;
-		background-color: red;
-		justify-content: center;
-
-		div {
-			display: flex;
-			flex-direction: column;
-			align-self: center;
-
-			span {
-				width: 100%;
-			}
-
-		}
-
+	&:hover div:nth-of-type(1) {			
 	}
 
-	.feild-day-right {
-			
-		display:inline-block;
-		background-color: @color-light;
-		width: 80%;
-		height: 100%;
+	&:hover div:nth-of-type(2) {
+		border-top: 8px solid @color-wf-red;
+		height: 242px;			
+	}	
+	
+	div {
+		display:flex;
+		width: 100%;
+		text-align: center;
+		justify-content:center;
+		flex-direction: column;
+		transition: border .2s, height .2s;
+		border-top: 0px;
+		
+	}
 
+	div:nth-of-type(1) {
+		height: 50px;
+		background-color: @color-dark;
+		color: @color-light;
+	}
 
-		div:nth-of-type(1) {
-			width: 100%;
-			height: 50%;
-		}
-		div:nth-of-type(2) {
-			width: 100%;
-			height: 50%;
-		}
+	div:nth-of-type(2) {
+		height: 250px;
 	}
 }
 
-.intro-content {
-	width: 100%;
+.mapOne {
+	background-image: url("../img/feildSummer.png");
+	background-position: center;
+}
+
+.mapTwo {
+	background-image: url("../img/feildSat.png");
+	background-position: center;
+}
+
+
+.text-content {
+	display: block;
 	background-color: #edf2f4;
-	padding: 30px;
+	padding: 20px;
 	margin: 0 0 20px 0;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 
@@ -206,6 +224,17 @@ a {
 	}
 
 }
+
+/* ==== Clickable Link To A File ==== */
+.social {
+	width: 100%;
+	height: 50px;
+	background-color: blue;
+	display: flex;
+	color: #edf2f4;
+	text-align: center;
+}
+
 
 /* ==== Clickable Link To A File ==== */
 .file {
@@ -250,7 +279,7 @@ a {
 	
 	display: inline-block;
 	height: 200px; width: 260px;
-	margin: 0 0 30px 0;	
+	margin: 0 0 20px 0;	
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 	
 	
@@ -282,17 +311,19 @@ a {
 /* ==== Event Class ==== */
 .event {
 	height: 100px;
-	background-color: grey;
-	margin: 30px;
+	background-color: @color-light;
+	margin: 0 0 20px 0;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
 
 	/* ==== Event Class Left ==== */
 	
 	/* "5 May" Date Container */
 	.event-date {	
 		height: 100px; width: 100px;
-		background-color: orange;
+		background-color: @color-dark;
 		text-align: center;
 		display: inline-block;
+		color: #ffffff;
 	
 		/* "5" Number Of Date */
 		span:nth-of-type(1) {
@@ -309,17 +340,81 @@ a {
 
 	/* "Event Details " */
 	.event-details  {
+		margin: 10px 0 0 20px;
 		display: inline-block;
-		color: white;
-		width: 650px;
-		margin-left: 12px;
+		width: ~"calc(100% - 130px)";
+		vertical-align: top;
 	
 		span:nth-of-type(1) {
 			font-size: 25px;
 			font-weight: 600;
 		}
 		
-		span:nth-of-type(2) {			
+		span:nth-of-type(2) {
 		}
 	}
+}
+
+.link {
+	display: flex;
+	height: 50px; width: 260px;
+	margin: 0 0 20px 0;	
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+	background-color: @color-light;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+	color: @color-dark;
+	font-size: @font-med;
+}
+
+.thirds {
+	display: flex;
+	width: 260px;
+	margin: 0 0 20px 0;	
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+	background-color: @color-light;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+	color: @color-dark;
+	font-size: @font-med;
+}
+
+.eventImgOne {
+	float: right;
+	width: 200px;
+	height: 100%;
+	margin: 0 5px 0 40px;
+}
+
+
+
+
+/* Style the tab buttons */
+.tablink {
+    background-color: @color-dark;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+	width: 25%;
+	transition: all .2s;
+	display: inline-block;
+}
+
+/* Change background color of buttons on hover */
+.tablink:hover {
+	background-color: @color-light;
+	color: @color-dark !important;
+}
+
+/* Set default styles for tab content */
+.tabcontent {
+	display: none;
+	text-align: center;
+	height: 300px;
+	box-shadow: none !important;
 }
