@@ -1,6 +1,8 @@
 
 @color-off:        #EF233C;
 @color-light:      #edf2f4;
+@color-light-light: #E3E8EA;
+@color-light-dark: #E8EDEF;
 @color-dark:       #2B2D42;
 @color-wf-red:     #AC030A;
 @color-wf-grey:    #999D98;
@@ -21,13 +23,9 @@
 
 /* ==================================== SETUP + CONTAINS ==================================== */
 
-.iframe {
-	width: 40px;
-}
 
-.center-text {
-	text-align: center;
-}
+
+/* ==================================== Tags ==================================== */
 
 /* ==== Standard Body Style ==== */
 body {
@@ -41,23 +39,12 @@ a {
 	text-decoration: none;
 }
 
-.facebook {
 
-	transition: all 2ms;
-	width: 100%;
-
-
-	&:hover {
-		margin: auto;
-		opacity: 0.8;
-	}
-
-	img {
-		width: 95%;
-		margin: 2.5%;
-	}
+p {
+	text-align: justify;
 }
 
+/* =========================== Contains And Spacing =========================== */
 
 
 /* ==== Contains ==== */
@@ -65,6 +52,17 @@ a {
 	display: grid;
 	grid-template-columns: @left-bar-width 1fr @right-bar-width;
 	grid-template-rows: @top-bar-height 1fr;
+}
+
+/* Area Between Left / Right / Top Bars*/
+.content {
+	grid-column: 2;
+	grid-row: 2;
+	background-color: @color-wf-grey;
+	padding: 40px;
+	position: relative;
+	height: unset;
+	overflow: auto;
 }
 
 /* ==== Space Around / Between ==== */
@@ -79,21 +77,10 @@ a {
 	justify-content: space-between;
 }
 
-/* Area Between Left / Right / Top Bars*/
-.content {
-	grid-column: 2;
-	grid-row: 2;
-	background-color: @color-wf-grey;
-	padding: 40px;
-	position: relative;
-	height: unset;
-}
-
-/* ==================================== BARS ==================================== */
+/* ===================== Layout + Bars and Their Elements ===================== */
 
 /* ==== TOP BAR ====*/
 .top-bar {
-	
 	display: flex;
 	grid-column: 1 e("/") @col-max;
 	grid-row: 1;
@@ -117,7 +104,6 @@ a {
 		font-size: @font-large;
 		margin-left: 20px;
 	}
-
 }
 
 /* ==== RIGHT BAR ==== */
@@ -127,8 +113,7 @@ a {
 	background-color: @color-dark;
 }
 
-
-/* ==== Left Bar ==== */
+/* ==== Left Bar And It's Elements ==== */
 .left-bar {
 	grid-column: 1;
 	grid-row: 2;
@@ -160,22 +145,56 @@ a {
 	}
 }
 
-/* ==================================== COMPONENTS ==================================== */
-.feild-day {
-	height: 300px;
-	width: 48%;
-	background-color: #edf2f4;
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-	margin: 0 0 20px 0;
-	font-size: @font-med;
+.facebook {
+	transition: all 2ms;
+	width: 100%;
 
-	&:hover div:nth-of-type(1) {			
+	&:hover {
+		margin: auto;
+		opacity: 0.8;
 	}
 
-	&:hover div:nth-of-type(2) {
-		border-top: 8px solid @color-wf-red;
-		height: 242px;			
-	}	
+	img {
+		width: 95%;
+		margin: 2.5%;
+	}
+}
+
+
+/* ================== Large or Complex Elements Requiring Layout ================== */
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.card {
+	margin: 0 0 20px 0;
+	background-color: @color-light;	
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);	
+}
+
+/* Half Of The Full Screen Width */
+.half-card {
+	&:extend(.card);
+	width: 48%;
+}
+
+.thirds-card {
+	&:extend(.card);	
+	width: 32%;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+/**/
+.feild-day {
+	&:extend(.half-card);
+	height: 300px;
+	font-size: @font-med;
 	
 	div {
 		display:flex;
@@ -185,7 +204,15 @@ a {
 		flex-direction: column;
 		transition: border .2s, height .2s;
 		border-top: 0px;
+	}
+
+	&:hover div:nth-of-type(2) {
 		
+		background-color: black;
+
+		span {
+			opacity: 1;
+		}
 	}
 
 	div:nth-of-type(1) {
@@ -196,61 +223,39 @@ a {
 
 	div:nth-of-type(2) {
 		height: 250px;
+		
+		span {
+			transition: .5s ease;
+			opacity: 0;
+			padding: 10px 20px;
+			background-color: @color-dark;
+			align-self: center;
+			color: #fff;
+		}
 	}
 }
 
-.mapOne {
-	background-image: url("../img/feildSummer.png");
-	background-position: center;
-}
-
-.mapTwo {
-	background-image: url("../img/feildSat.png");
-	background-position: center;
-}
-
-
 .text-content {
+	&:extend(.card);
 	display: block;
-	background-color: #edf2f4;
-	padding: 20px;
-	margin: 0 0 20px 0;
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+	padding: 1px 20px 20px 20px;
 
 	span:nth-of-type(1) {
 		font-size: @font-med;
 	}
-	span:nth-of-type(2) {
-	}
-
 }
-
-/* ==== Clickable Link To A File ==== */
-.social {
-	width: 100%;
-	height: 50px;
-	background-color: blue;
-	display: flex;
-	color: #edf2f4;
-	text-align: center;
-}
-
 
 /* ==== Clickable Link To A File ==== */
 .file {
-
-	width: 100%;
+	&:extend(.card);
 	height: 40px;
-	background-color: @color-light;
 	margin: 0 0 10px 0;
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 	display: flex;	
 
 	a {
 		display:flex;
 		width: 100%;
 	}
-
 	.file-icon {
 		
 		display: inline-flex;
@@ -265,7 +270,6 @@ a {
 			align-self: center;
 		}
 	}
-
 	span {
 		margin: 0 0 0 10px;
 		align-self: center;
@@ -274,48 +278,28 @@ a {
 
 }
 
-/* ==== Element W. Picture and Link ==== */
-.image-link {
-	
-	display: inline-block;
-	height: 200px; width: 260px;
-	margin: 0 0 20px 0;	
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-	
-	
-	/* ==== Image ==== */
-	div:nth-of-type(1) {
-		
-		height: 160px;				
-		img {
-	
-			width: 100%;
-		}
-	}
-	
-	/* ==== Div Containing Text ==== */
-	div:nth-of-type(2) {
-		background-color: @color-light;
-		height: 40px;
-		display: flex;
-		justify-content: center;
+/* =============================== Specific Elements =============================== */
 
-		a {
-			align-self: center;
-			color: @color-dark;
-			font-size: @font-med;
-		}
+#mapOne {
+	transition: .5s ease;
+	display: flex;
+	background-image: url("../img/feildSummer.png");
+	background-position: center;
+	justify-content: center;
+}
+
+#mapTwo {
+	background-image: url("../img/feildSat.png");
+	background-position: center;
+	div {
+		&:extend(.center);		
 	}
 }
 
 /* ==== Event Class ==== */
 .event {
+	&:extend(.card);
 	height: 100px;
-	background-color: @color-light;
-	margin: 0 0 20px 0;
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
-
-	/* ==== Event Class Left ==== */
 	
 	/* "5 May" Date Container */
 	.event-date {	
@@ -349,47 +333,22 @@ a {
 			font-size: 25px;
 			font-weight: 600;
 		}
-		
-		span:nth-of-type(2) {
-		}
 	}
-}
-
-.link {
-	display: flex;
-	height: 50px; width: 260px;
-	margin: 0 0 20px 0;	
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-	background-color: @color-light;
-	justify-content: center;
-	text-align: center;
-	flex-direction: column;
-	color: @color-dark;
-	font-size: @font-med;
-}
-
-.thirds {
-	display: flex;
-	width: 260px;
-	margin: 0 0 20px 0;	
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-	background-color: @color-light;
-	justify-content: center;
-	text-align: center;
-	flex-direction: column;
-	color: @color-dark;
-	font-size: @font-med;
 }
 
 .eventImgOne {
 	float: right;
 	width: 200px;
 	height: 100%;
-	margin: 0 5px 0 40px;
+	margin: 0 10px 0 40px;
 }
 
-
-
+.introPic {
+	float: right;
+	width: 200px;
+	height: 100%;
+	margin: 1em 0 1em 2em;
+}
 
 /* Style the tab buttons */
 .tablink {
@@ -417,4 +376,54 @@ a {
 	text-align: center;
 	height: 300px;
 	box-shadow: none !important;
+}
+
+.spacer {
+	width: 100%;
+	height: 0.2px;
+	opacity: 0.5;
+	background-color: @color-dark;
+}
+
+
+#events {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#events th:first-of-type {
+	border-left: 1px solid @color-dark; 
+}
+
+#events th:last-of-type {
+	border-right: 1px solid @color-dark;
+}
+
+#events td {
+    border: 1px solid @color-dark;
+    padding: 8px;
+} 
+
+#events th {
+    border: 1px solid @color-light;
+    padding: 8px;
+}
+
+#events tr:hover {
+	background-color: @color-light-dark;
+
+}
+
+#events tr:nth-child(even){
+	background-color: @color-light-light;
+}
+
+#events tr:hover {background-color: #ddd;}
+
+#events th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: @color-dark;
+    color: white;
 }

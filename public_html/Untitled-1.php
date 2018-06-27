@@ -136,8 +136,10 @@
         </div>
         <!-- tab-panel -->
         <div class="tab-pane" id="tab1-5">
-
-
+            <?php echo $ . "<br>";
+echo "My house is " . $COLOR . "<br>";
+echo "My boat is " . $coLOR . "<br>";
+?>
         </div>
         <!-- tab-panel -->
     </div>
